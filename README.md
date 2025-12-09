@@ -142,6 +142,19 @@ This project serves as a demonstration of:
 
 ---
 
+## Best Practices & Decisions
+
+- Clean and simple folder structure
+- Single-responsibility components
+- NASA API calls handled in dedicated service functions
+- URL-driven state using `useSearchParams`
+- Clear loading and error states
+- ESLint + Prettier for consistent formatting
+- Basic unit tests
+- Accessible HTML
+
+---
+
 ## License
 
 This project is for educational and portfolio purposes only.
