@@ -1,7 +1,7 @@
 # NASA Image and Video Explorer
 
-A lightweight React application that allows users to search NASA’s public media library (images and videos) by keyword.
-This project was built as part of a frontend technical challenge, with a strong focus on clean and maintainable code, clear project structure, and a simple, user-friendly interface.
+This repository contains a small React application that lets users search NASA’s public media library (images + videos).
+I built it as part of a frontend technical challenge, focusing on clean code, clear structure, and a simple, friendly user experience.
 
 ---
 
@@ -15,8 +15,8 @@ https://siraeroglu.github.io/nasa/
 
 - **React (Vite)** – Fast development environment and optimized build setup
 - **React Router** – Client-side routing and URL-based state management
-- **NASA Images & Video API** – Public API used for fetching media data
-- **Plain CSS** – Custom styling without any UI frameworks
+- **NASA Images & Video API** – Public media API
+- **Plain CSS** – Hand-written styling, no UI framework
 - **Vitest + React Testing Library** – Basic unit and integration tests
 
 ---
@@ -26,23 +26,22 @@ https://siraeroglu.github.io/nasa/
 - Search NASA’s media library by keyword
 - Support for **both images and videos**
 - Detail page with a large preview and full description
-- Pagination powered by NASA API’s built-in `page` parameter
+- Pagination using NASA’s native `page` parameter
 - URL-based state management (`?q=moon&page=2&media=image`)
   → Refresh, browser back, and forward navigation work naturally
-- Loading indicator during data fetch
-- Clear and friendly empty-state messages when no results are found
-- Basic automated tests covering core functionality
+- Loading indicator during fetch
+- Helpful empty-state messages
+- A few small automated tests covering core behavior
 
 ---
 
 ## UI Details
 
 - Clean and minimal layout
-- Hero section with helpful search suggestions
+- A simple hero section with example search suggestions
 - Gradient action buttons (search, pagination, back)
-- Responsive media cards that adapt to different screen sizes
-- Centered NASA logo on the initial empty screen
-- Subtle dotted background to give a soft “space-inspired” feel
+- Responsive media cards
+- Centered NASA logo when the page is empty
 
 ---
 
@@ -57,25 +56,25 @@ npm run dev
 
 ```
 
--The app will run at:http://localhost:5173
+- The app will run at:http://localhost:5173
 
 ---
 
-## Running Tests
+## Testing
 
 This project includes two simple but meaningful tests written with Vitest and React Testing Library.
 
-What the tests cover
+Covered scenarios:
 
 - **Submitting an empty search**
-  → The user should see a friendly validation message.
+  → A friendly validation message appears.
 
 - **Searching for a nonsense word**
-  → Since NASA returns no items, the UI should display a clear “no results found” state.
+  → NASA returns no items, so the UI shows a clear empty-results state.
 
-To keep tests fast and reliable, the NASA API service (`searchNasaImages`) is mocked so it always returns an empty list during test runs.
+To keep tests stable and fast, the searchNasaImages function is mocked during test runs.
 
-## Run tests
+## Run tests with:
 
 ```bash
 npm test
@@ -85,12 +84,12 @@ npm test
 
 ## API Notes
 
-This application uses NASA’s public **Images & Video API**:
+This app uses NASA’s Images & Video API:
 
 **Base URL:**
 https://images-api.nasa.gov/search
 
-### Fields used in this project
+### Fields used
 
 - `data[0].title`
 - `data[0].description`
@@ -98,13 +97,14 @@ https://images-api.nasa.gov/search
 - `data[0].media_type`
 - `links[0].href` — thumbnail URL
 
-### Query parameters sent to NASA
+### Query parameters sent
 
 - **`q`** → search keyword
 - **`page`** → forwarded directly for NASA’s built-in pagination
 - **`media_type`** → `"image"`, `"video"`, or both
 
-The main service function (`searchNasaImages`) is intentionally small and easy to follow, handling URL construction, query parameters, API calls, and simple media filtering in a clean and maintainable way.
+The searchNasaImages service is intentionally small and easy to follow.
+It handles URL construction, query params, the API call, and some basic filtering.
 
 ## Project Structure (Simplified)
 
@@ -134,17 +134,17 @@ src/
 This project serves as a demonstration of:
 
 - Clean and modular React component structure
-- Handling async API requests and data loading states
-- Implementing simple routing and pagination
-- Thoughtful UI/UX, especially for empty states and error scenarios
+- Handling async API requests and data loading/empty/error states
+- Simple routing and pagination
+- Thoughtful UX for “no results” and other edge cases
 - Writing basic automated tests for core behaviors
-- Keeping the codebase readable and approachable for beginners
+- A readable, beginner-friendly codebase
 
 ---
 
 ## License
 
-This project is intended for **educational and portfolio purposes only**.
-The NASA Images & Video API is a public, freely accessible API provided by NASA.
+This project is for educational and portfolio purposes only.
+The NASA Images & Video API is a public service provided by NASA.
 
 ---
