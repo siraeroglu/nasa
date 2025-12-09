@@ -1,12 +1,14 @@
-// proje için vite ayarları react plugini ve vitestin çalışma ortamı burada tanımlanır
+// vite ayarları
+// burada hem normal build hem de vitest için ayar yapıyorum
 
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  plugins: [react()], // react için gerekli vite plugini
+  base: "/nasa/", // github pages'de repo adın neyse onu yazıyoruz
+  plugins: [react()],
   test: {
-    environment: "jsdom",          // bileşenlerin tarayıcı benzeri ortamda test edilebilmesi için
-    setupFiles: "./src/setupTests.js", // jest-dom ve cleanup gibi global test ayarları
+    environment: "jsdom", // react component'lerini browser ortamı gibi test etmek için
+    setupFiles: "./src/setupTests.js", // jest-dom ayarlarını buradan yüklüyorum
   },
 });
