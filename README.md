@@ -108,21 +108,24 @@ The main service function (`searchNasaImages`) is intentionally small and easy t
 
 ## Project Structure (Simplified)
 
+```txt
 src/
 ├── assets/
 ├── components/
-│ ├── MediaCard.jsx
-│ └── SearchBar.jsx
+│   ├── MediaCard.jsx
+│   └── SearchBar.jsx
 ├── pages/
-│ ├── SearchPage.jsx
-│ ├── SearchPage.test.jsx
-│ └── DetailPage.jsx
+│   ├── SearchPage.jsx
+│   ├── SearchPage.test.jsx
+│   └── DetailPage.jsx
 ├── services/
-│ └── nasaApi.js
+│   └── nasaApi.js
 ├── App.jsx
 ├── index.css
 ├── main.jsx
 └── setupTests.js
+
+```
 
 ---
 
