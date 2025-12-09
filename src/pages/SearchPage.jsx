@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import MediaCard from "../components/MediaCard";
 import { searchNasaImages } from "../services/nasaApi";
-import nasaLogo from "../assets/nasa-logo.png"; // uzantını ne koyduysan ona göre düzelt
+import nasaLogo from "../assets/nasa-logo.png";
 
 
 function SearchPage() {
