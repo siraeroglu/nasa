@@ -5,6 +5,12 @@ I built this project as part of a frontend coding challenge and focused on writi
 
 ---
 
+## Live Demo
+
+https://siraeroglu.github.io/nasa/
+
+---
+
 ## Tech Stack
 
 - **React (Vite)**
