@@ -32,18 +32,38 @@ export async function searchNasaImages(query, page = 1, media = "all") {
 }
 
 /**
- * Belirli bir NASA asseti için detayları getirir.
+ * tek bir NASA asset detayını almak için kullanılan fonksiyon
+ * DetailPage bu fonksiyonu kullanıyor
  */
 export async function getNasaAssetDetails(nasaId) {
   const url = `https://images-api.nasa.gov/asset/${nasaId}`;
 
   const response = await fetch(url);
+
   if (!response.ok) {
     throw new Error("failed to fetch nasa asset details");
   }
 
   const data = await response.json();
 
-  // asset API gerçek medya dosyalarını collection.items dizisinde döner
-  return data?.collection?.items || [];
+  const items = data?.collection?.items || [];
+
+  // görsel için uygun bir url
+  const imageItem = items.find((item) =>
+    typeof item.href === "string" &&
+    /\.(jpg|jpeg|png)$/i.test(item.href)
+  );
+
+  // video için uygun bir url
+  const videoItem = items.find((item) =>
+    typeof item.href === "string" &&
+    /\.(mp4|m4v|mov)$/i.test(item.href)
+  );
+
+  return {
+    items,
+    imageUrl: imageItem ? imageItem.href : null,
+    videoUrl: videoItem ? videoItem.href : null,
+  };
 }
+

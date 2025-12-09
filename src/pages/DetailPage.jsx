@@ -41,7 +41,6 @@ function DetailPage() {
     };
 
     fetchDetails();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nasaId]);
 
   // gösterilecek görsel
